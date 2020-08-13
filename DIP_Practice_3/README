@@ -1,0 +1,26 @@
+Data Image Processing
+
+	(1072)5/15-5/6影像處理作業，用python撰寫一個簡易的GUI，實現Homomorphic Filter、RGB/HSI、complement、HSI level slicing等功能。
+	
+Getting Started
+
+	環境準備：Ubuntu 16.04、Python 3.5.2
+	使用套件：PIL<Image,ImageTk>、tkinter、numpy、matplotlib.pyplot
+	事前下載：
+		sudo apt-get install python3-pip
+		pip3 install camelcase
+		pip3 install numpy
+		pip3 install opencv-python / python3 -m pip install opencv-python
+		sudo apt-get install python3-matplotlib
+		sudo pip3 install pillow –upgrade
+		
+Running the tests
+
+	執行python3 hw3.py，Open File欄位輸入欲處理之檔案名稱再打開此圖片，若輸入錯誤找不到圖檔會跳出錯誤訊息，重新輸入即可，輸入成功則顯示於視窗上。若遇儲存照片，請先於Save File欄位輸入檔案名稱以及副檔名(ex. Abc.jpg)再點按save即可儲存，儲存成功失敗皆會有視窗提醒。
+	第一大題，Homomorphic Filter with Gaussian high-pass filter，使用”Fig0460a.tif”為測試圖片，使用者自行輸入rL, rH, c, D0之參數，並點選show則會出現兩張圖片，左圖為做完Homo Filter的效果圖，右圖為使用Histogram加深Filter後的可讀性，若單純只對原始圖像做Histogram，只會更模糊。( 註：附圖picHomoHis, picHisOnly )。
+	第二大題，針對彩色圖檔作運算。(a)顯示RGB分別的圖像。(b)顯示RGB分別的圖像，先選定按鈕後，點選show即可顯示。(c)顯示HSI分別的圖像，先選定按鈕後，點選show即可顯示。(d)RGB對比色顯示，點選按鈕即可顯示互補色的圖像。(e)smoothing(5x5kernel)與sharpening(Laplacian)，點選個別按鈕後，圖像效果顯示為左圖，而差異的圖像顯示為右圖。(f)找出Lenna的羽毛部分，藉由Hue、Saturation的切割並加以運算得到羽毛的部分。一開始，我先用3D Axis描繪出HIS組成的3D座標( 註：附圖 Lenna3DAxis1/2, 附檔：LennaHSI3D )，接下來，我先切出Hue，但並非只有與毛的部分顯示出來，所以我第二步多切了Saturation顏色比較不飽和的部分，最後再將兩張圖片做XOR運算。( 註：附圖 picFeatherSteps )
+
+
+Review
+
+	這次是第三次影像處理作業，我認為每次的作業都是不同的挑戰，也在寫作業的過程中，運用到之前所學的東西，上網閱讀各種資料，讓自己更加深刻體會老師課堂所說的一些概念。我認為這次的彩色圖片處理還蠻有趣的，藉由HSI的部分切出Lenna的羽毛，過程中，嘗試各種方法想要把不相干的東西一併去除掉，在這些也許我並不一定確認結果的各種運算，得到各式各樣的圖片，慢慢將羽毛一步一步顯示出來，是一個很大的挑戰。寫完第三次作業後，雖然還是覺得自己的能力很苗小，但還是希望之後自己也能接受更多挑戰，更進步。
